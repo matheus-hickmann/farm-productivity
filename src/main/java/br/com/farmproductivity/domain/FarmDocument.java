@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -14,9 +14,10 @@ import java.util.List;
 @NoArgsConstructor
 public class FarmDocument {
 
-    private String name;
-    private BigDecimal productionCapacity;
+    @Id
+    private String id;
 
+    private String name;
     private List<FieldDocument> fields;
 
 }

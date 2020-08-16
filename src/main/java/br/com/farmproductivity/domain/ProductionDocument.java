@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,12 +15,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ProductionDocument {
 
+    @Id
+    private String id;
+
     private String description;
     private BigDecimal amount;
-
-    private LocalDateTime initialDate;
-    private LocalDateTime finalDate;
-
-    private Integer periodicity;
 
 }

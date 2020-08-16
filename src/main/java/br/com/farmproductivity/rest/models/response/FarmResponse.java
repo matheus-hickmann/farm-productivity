@@ -5,12 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @Builder
 public class FarmResponse {
 
+    private String id;
     private String name;
-    private BigDecimal productionCapacity;
+
+    private List<FieldResponse> fields;
+
 }
