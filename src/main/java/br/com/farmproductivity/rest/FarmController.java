@@ -7,7 +7,9 @@ import br.com.farmproductivity.rest.models.response.factory.FarmResponseFactory;
 import br.com.farmproductivity.service.CreateFarmService;
 import br.com.farmproductivity.service.GetAllFarmsService;
 import br.com.farmproductivity.service.GetFarmByIdService;
+import br.com.farmproductivity.service.UpdateFarmService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -27,6 +29,9 @@ public class FarmController {
 
     @Autowired
     private CreateFarmService createFarmService;
+
+    @Autowired
+    private UpdateFarmService updateFarmService;
 
     @GetMapping
     public Flux<FarmResponse> getFarms() {
@@ -50,6 +55,14 @@ public class FarmController {
     public Mono<FarmResponse> createFarm(@Valid @RequestBody FarmRequest request) {
         FarmDocument createdFarm = createFarmService.execute(request.getName());
         return Mono.just(FarmResponseFactory.build(createdFarm));
+    }
+
+    @PutMapping("/{id}")
+    public Mono<Void> updateFarm(@PathVariable("id") String id,
+                                           @Valid @RequestBody FarmRequest request) {
+        updateFarmService.execute(id, request.getName());
+
+        return Mono.empty();
     }
 
 }

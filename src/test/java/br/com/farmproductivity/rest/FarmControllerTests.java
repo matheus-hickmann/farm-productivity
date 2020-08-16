@@ -1,8 +1,10 @@
 package br.com.farmproductivity.rest;
 
 import br.com.farmproductivity.domain.repository.FarmRepository;
+import br.com.farmproductivity.service.CreateFarmService;
 import br.com.farmproductivity.service.GetAllFarmsService;
 import br.com.farmproductivity.service.GetFarmByIdService;
+import br.com.farmproductivity.service.UpdateFarmService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,9 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @WebFluxTest(controllers = FarmController.class)
 @Import({
         GetAllFarmsService.class,
-        GetFarmByIdService.class
+        GetFarmByIdService.class,
+        CreateFarmService.class,
+        UpdateFarmService.class
 })
 public class FarmControllerTests {
 
