@@ -37,5 +37,13 @@ public class FarmControllerTests {
 
     }
 
+    @Test
+    public void givenReceivedGetRequestOnInvalidFarmId_shouldAlwaysReturnNotFoundStatus() {
+        webClient.get()
+                .uri(BASE_PATH.concat("AnyInvalidId"))
+                .exchange()
+                .expectStatus().isNotFound();
+
+    }
 
 }
