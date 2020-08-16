@@ -4,10 +4,7 @@ import br.com.farmproductivity.domain.FarmDocument;
 import br.com.farmproductivity.rest.models.request.FarmRequest;
 import br.com.farmproductivity.rest.models.response.FarmResponse;
 import br.com.farmproductivity.rest.models.response.factory.FarmResponseFactory;
-import br.com.farmproductivity.service.CreateFarmService;
-import br.com.farmproductivity.service.GetAllFarmsService;
-import br.com.farmproductivity.service.GetFarmByIdService;
-import br.com.farmproductivity.service.UpdateFarmService;
+import br.com.farmproductivity.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +29,9 @@ public class FarmController {
 
     @Autowired
     private UpdateFarmService updateFarmService;
+
+    @Autowired
+    private DeleteFarmService deleteFarmService;
 
     @GetMapping
     public Flux<FarmResponse> getFarms() {
@@ -58,11 +58,18 @@ public class FarmController {
     }
 
     @PutMapping("/{id}")
-    public Mono<Void> updateFarm(@PathVariable("id") String id,
+    public Mono<ResponseEntity> updateFarm(@PathVariable("id") String id,
                                            @Valid @RequestBody FarmRequest request) {
         updateFarmService.execute(id, request.getName());
 
-        return Mono.empty();
+        return Mono.just(ResponseEntity.noContent().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public Mono<ResponseEntity> deleteFarm(@PathVariable("id") String id) {
+        deleteFarmService.execute(id);
+
+        return Mono.just(ResponseEntity.noContent().build());
     }
 
 }
