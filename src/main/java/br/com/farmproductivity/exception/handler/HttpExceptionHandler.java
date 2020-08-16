@@ -20,8 +20,10 @@ public class HttpExceptionHandler {
     }
 
     //Global Exception Handler
-    @ExceptionHandler(value = Exception.class)
-    public ResponseEntity handleException(Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    @ExceptionHandler(value = RuntimeException.class)
+    public ResponseEntity handleException(RuntimeException e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(HttpErrorResponseFactory.build(
+                ErrorCode.UNEXPECTED_ERROR.toString(), e.getMessage())
+        );
     }
 }

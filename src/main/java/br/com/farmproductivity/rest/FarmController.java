@@ -1,17 +1,18 @@
 package br.com.farmproductivity.rest;
 
 import br.com.farmproductivity.domain.FarmDocument;
+import br.com.farmproductivity.rest.models.request.FarmRequest;
 import br.com.farmproductivity.rest.models.response.FarmResponse;
 import br.com.farmproductivity.rest.models.response.factory.FarmResponseFactory;
+import br.com.farmproductivity.service.CreateFarmService;
 import br.com.farmproductivity.service.GetAllFarmsService;
 import br.com.farmproductivity.service.GetFarmByIdService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,6 +24,9 @@ public class FarmController {
 
     @Autowired
     private GetFarmByIdService getFarmByIdService;
+
+    @Autowired
+    private CreateFarmService createFarmService;
 
     @GetMapping
     public Flux<FarmResponse> getFarms() {
@@ -40,6 +44,12 @@ public class FarmController {
     public Mono<FarmResponse> getFarmById(@PathVariable("id") String id) {
         FarmDocument farm = getFarmByIdService.execute(id);
         return Mono.just(FarmResponseFactory.build(farm));
+    }
+
+    @PostMapping
+    public Mono<FarmResponse> createFarm(@Valid @RequestBody FarmRequest request) {
+        FarmDocument createdFarm = createFarmService.execute(request.getName());
+        return Mono.just(FarmResponseFactory.build(createdFarm));
     }
 
 }
