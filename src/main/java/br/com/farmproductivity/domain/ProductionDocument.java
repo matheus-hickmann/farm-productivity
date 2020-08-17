@@ -18,6 +18,9 @@ public class ProductionDocument {
     @Id
     private String id;
 
+    private String farmId;
+    private String fieldId;
+
     private String description;
     private BigDecimal amount;
 
