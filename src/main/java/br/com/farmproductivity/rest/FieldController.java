@@ -3,7 +3,7 @@ package br.com.farmproductivity.rest;
 import br.com.farmproductivity.domain.FieldDocument;
 import br.com.farmproductivity.rest.models.response.FieldResponse;
 import br.com.farmproductivity.rest.models.response.factory.FieldResponseFactory;
-import br.com.farmproductivity.service.GetAllFieldsByFarmService;
+import br.com.farmproductivity.service.field.GetAllFieldsByFarmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

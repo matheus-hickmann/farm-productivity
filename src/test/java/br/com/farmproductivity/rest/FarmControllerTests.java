@@ -1,10 +1,10 @@
 package br.com.farmproductivity.rest;
 
 import br.com.farmproductivity.domain.repository.FarmRepository;
-import br.com.farmproductivity.service.CreateFarmService;
-import br.com.farmproductivity.service.GetAllFarmsService;
-import br.com.farmproductivity.service.GetFarmByIdService;
-import br.com.farmproductivity.service.UpdateFarmService;
+import br.com.farmproductivity.service.farm.CreateFarmService;
+import br.com.farmproductivity.service.farm.GetAllFarmsService;
+import br.com.farmproductivity.service.farm.GetFarmByIdService;
+import br.com.farmproductivity.service.farm.UpdateFarmService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

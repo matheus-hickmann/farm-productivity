@@ -1,4 +1,4 @@
-package br.com.farmproductivity.service;
+package br.com.farmproductivity.service.farm;
 
 import br.com.farmproductivity.domain.FarmDocument;
 import br.com.farmproductivity.domain.repository.FarmRepository;

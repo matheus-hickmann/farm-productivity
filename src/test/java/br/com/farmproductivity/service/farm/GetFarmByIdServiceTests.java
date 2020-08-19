@@ -1,8 +1,9 @@
-package br.com.farmproductivity.service;
+package br.com.farmproductivity.service.farm;
 
 import br.com.farmproductivity.domain.FarmDocument;
 import br.com.farmproductivity.domain.repository.FarmRepository;
 import br.com.farmproductivity.exception.FarmNotFoundException;
+import br.com.farmproductivity.service.farm.GetFarmByIdService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

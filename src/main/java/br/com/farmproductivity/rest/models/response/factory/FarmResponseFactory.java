@@ -12,9 +12,6 @@ public class FarmResponseFactory {
         return FarmResponse.builder()
                 .id(farm.getId())
                 .name(farm.getName())
-                .fields(farm.getFields() != null ?
-                        farm.getFields().stream().filter(Objects::nonNull).map(FieldResponseFactory::build).collect(Collectors.toList())
-                        : null)
                 .build();
     }
 }

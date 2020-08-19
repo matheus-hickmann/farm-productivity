@@ -4,7 +4,7 @@ import br.com.farmproductivity.domain.FarmDocument;
 import br.com.farmproductivity.rest.models.request.FarmRequest;
 import br.com.farmproductivity.rest.models.response.FarmResponse;
 import br.com.farmproductivity.rest.models.response.factory.FarmResponseFactory;
-import br.com.farmproductivity.service.*;
+import br.com.farmproductivity.service.farm.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
