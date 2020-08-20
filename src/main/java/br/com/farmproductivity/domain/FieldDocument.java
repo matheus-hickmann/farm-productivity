@@ -24,6 +24,4 @@ public class FieldDocument {
     private String name;
     private Integer hectare;
 
-    private List<ProductionDocument> productions;
-
 }

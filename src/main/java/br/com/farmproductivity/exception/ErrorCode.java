@@ -8,7 +8,9 @@ public enum ErrorCode {
 
     UNEXPECTED_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "Unexpected error ocurred"),
     DUPLICATED_FARM_NAME(HttpStatus.FORBIDDEN, "Farm name cannot be duplicated"),
-    FARM_NOT_FOUND(HttpStatus.NOT_FOUND, "Farm not found");
+    DUPLICATED_FIELD_NAME(HttpStatus.FORBIDDEN, "Field name cannot be duplicated for the same farm"),
+    FARM_NOT_FOUND(HttpStatus.NOT_FOUND, "Farm not found"),
+    FIELD_NOT_FOUND(HttpStatus.NOT_FOUND, "Field not found");
 
     private HttpStatus httpStatus;
     private String message;

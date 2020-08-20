@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
-public class GetFarmByIdServiceTests {
+public class GetFieldByIdServiceTests {
 
     private static final FarmDocument FARM = FarmDocument.builder()
             .id("id")
