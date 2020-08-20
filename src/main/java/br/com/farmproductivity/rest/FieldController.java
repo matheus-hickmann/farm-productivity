@@ -29,7 +29,7 @@ public class FieldController {
     private DeleteFieldService deleteFieldService;
 
     @Autowired
-    private GetFieldByIdService getFieldByIdService;
+    private GetFieldService getFieldService;
 
     @Autowired
     private UpdateFieldService updateFieldService;
@@ -44,7 +44,7 @@ public class FieldController {
     @GetMapping("/{id}")
     public Mono<FieldResponse> getFieldByFarmIdAndId(@PathVariable("farmId") String farmId,
                                                      @PathVariable("id") String id) {
-        FieldDocument field = getFieldByIdService.execute(farmId, id);
+        FieldDocument field = getFieldService.execute(farmId, id);
 
         return Mono.just(FieldResponseFactory.build(field));
     }

@@ -12,13 +12,13 @@ import java.util.Optional;
 public class UpdateFarmService {
 
     @Autowired
-    private GetFarmByIdService getFarmByIdService;
+    private GetFarmService getFarmService;
 
     @Autowired
     private FarmRepository repository;
 
     public void execute(String id, String name) {
-        FarmDocument farm = getFarmByIdService.execute(id);
+        FarmDocument farm = getFarmService.execute(id);
 
         if (name.equals(farm.getName())) {
             return;

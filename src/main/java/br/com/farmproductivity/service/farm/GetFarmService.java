@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class GetFarmByIdService {
+public class GetFarmService {
 
     @Autowired
     private FarmRepository repository;

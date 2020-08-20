@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 public class DeleteFarmService {
 
     @Autowired
-    private GetFarmByIdService getFarmByIdService;
+    private GetFarmService getFarmService;
 
     @Autowired
     private FarmRepository repository;
 
     public void execute(String id) {
-        FarmDocument farm = getFarmByIdService.execute(id);
+        FarmDocument farm = getFarmService.execute(id);
 
         repository.delete(farm);
     }

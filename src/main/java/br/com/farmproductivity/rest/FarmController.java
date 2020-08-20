@@ -22,7 +22,7 @@ public class FarmController {
     private GetAllFarmsService getAllFarmsService;
 
     @Autowired
-    private GetFarmByIdService getFarmByIdService;
+    private GetFarmService getFarmService;
 
     @Autowired
     private CreateFarmService createFarmService;
@@ -47,7 +47,7 @@ public class FarmController {
 
     @GetMapping("/{id}")
     public Mono<FarmResponse> getFarmById(@PathVariable("id") String id) {
-        FarmDocument farm = getFarmByIdService.execute(id);
+        FarmDocument farm = getFarmService.execute(id);
         return Mono.just(FarmResponseFactory.build(farm));
     }
 

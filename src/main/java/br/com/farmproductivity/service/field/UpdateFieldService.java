@@ -13,13 +13,13 @@ import java.util.Optional;
 public class UpdateFieldService {
 
     @Autowired
-    private GetFieldByIdService getFieldByIdService;
+    private GetFieldService getFieldService;
 
     @Autowired
     private FieldRepository repository;
 
     public void execute(String farmId, String id, FieldRequest request) {
-        FieldDocument field = getFieldByIdService.execute(farmId, id);
+        FieldDocument field = getFieldService.execute(farmId, id);
 
         if (request.getName().equals(field.getName())) {
             return;
